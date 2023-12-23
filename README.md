@@ -11,7 +11,10 @@ For example the hyprland config is from [ "this guy who did an AMAZING job"](htt
 
 And my neovim config is [lunarvim](https://www.lunarvim.org/ "lunarvim")
 
+though nowadays I use [Lazyvim](https://www.lazyvim.org/ "lazyvim")
+
 there's nothing more to say TBH
 
 I'm a guy who steals from other peoples configs
+
 
