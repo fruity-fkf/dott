@@ -11,10 +11,10 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
-config.window_background_opacity = 0.7
+config.window_background_opacity = 1.0
 config.hide_tab_bar_if_only_one_tab = true
 config.font_size = 9.0
-config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = "tokyonight"
 config.font = wezterm.font("JetBrains Mono")
 config.window_close_confirmation = "NeverPrompt"
 -- and finally, return the configuration to wezterm
