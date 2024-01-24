@@ -18,4 +18,5 @@ config.color_scheme = "tokyonight"
 config.font = wezterm.font("JetBrains Mono")
 config.window_close_confirmation = "NeverPrompt"
 -- and finally, return the configuration to wezterm
+
 return config
