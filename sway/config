@@ -22,10 +22,16 @@ set $menu wofi --show drun -I
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-exec killall swww-daemon
-exec waypaper --restore
-exec mako
 exec_always autotiling
+
+
+# Notification Daemon
+exec swaync
+
+# Toggle control center
+bindsym $mod+Shift+n exec swaync-client -t -sw
+
+exec wal -r
 
 #### SWAYFX ONLY!!!
 
@@ -97,9 +103,24 @@ gaps inner 9
     # mouse button for dragging.
     floating_modifier $mod normal
 
+
+
+
+
+# capture all screens to clipboard    
+bindsym $mod+Shift+P exec grim - | wl-copy    
+    
+# capture the specified screen area to clipboard    
+bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy    
+    
+# capture the focused monitor to clipboard    
+bindsym Shift+Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
+
+
+
+
     # Reload the configuration file
     bindsym $mod+Shift+c reload
-
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
@@ -220,6 +241,25 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 
-exec waybar &
+
+bar {
+    position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
+
+
+
+
+exec /home/fkf/wallpaper.sh
+
 
 include @sysconfdir@/sway/config.d/*
