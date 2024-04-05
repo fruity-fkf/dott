@@ -49,6 +49,21 @@ gaps inner 9
 
 
 
+
+
+
+
+### media controls
+
+
+
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+
+
+
 #
 # Example configuration:
 #
@@ -241,25 +256,10 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 
-
-bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+exec waybar -c ~/.config/sway/waybar/config -s ~/.config/sway/waybar/style.css  
 
 
 
-
-exec /home/fkf/wallpaper.sh
-
+exec ~/.config/sway/wallpaper.sh
 
 include @sysconfdir@/sway/config.d/*
