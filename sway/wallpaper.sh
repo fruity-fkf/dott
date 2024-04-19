@@ -6,18 +6,14 @@
 
 wall=~/wallpapers/desktop-wallpaper/simply-muted/muted-11.png
 
-
 # Picks background wallpaper
 swaybg -i $wall
-
 
 # generate color scheme
 wal -c
 wal -i $wall
 
-
 # Enable this (by removing the # next to pywalfox update) if you use firefox AND downloaded the pywalfox extension and installed repository.
 # pywalfox update
-
 
 # Deletes the sww cache
