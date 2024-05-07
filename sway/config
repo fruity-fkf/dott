@@ -18,7 +18,8 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show drun -show-icons 
+set $menu ~/.config/rofi/launchers/type-3/launcher.sh
+ 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
@@ -31,7 +32,12 @@ exec swaync
 # Toggle control center
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
+bindsym $mod+n exec ~/.config/rofi/applets/bin/quicklinks.sh
+
 exec wal -r
+
+
+
 
 #### SWAYFX ONLY!!!
 
@@ -50,11 +56,11 @@ gaps inner 9
 
 
 
-
-
-
+layer_effects "waybar" blur enable; shadows enable; corner_radius 6
 ### media controls
 
+layer_effects "rofi" blur enable; shadows enable; corner_radius 6
+### media controls
 
 
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
