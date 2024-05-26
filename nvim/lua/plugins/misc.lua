@@ -1,65 +1,50 @@
 return {
 
   {
-    "epwalsh/obsidian.nvim",
-    version = "*", -- recommended, use latest release instead of latest commit
-    lazy = true,
-    ft = "markdown",
-    -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-    -- event = {
-    --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-    --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-    --   "BufReadPre path/to/my-vault/**.md",
-    --   "BufNewFile path/to/my-vault/**.md",
-    -- },
-
-    mappings = {
-      -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-      ["gf"] = {
-        action = function()
-          return require("obsidian").util.gf_passthrough()
-        end,
-        opts = { noremap = false, expr = true, buffer = true },
-      },
-      -- Toggle check-boxes.
-      ["<leader>ch"] = {
-        action = function()
-          return require("obsidian").util.toggle_checkbox()
-        end,
-        opts = { buffer = true },
-      },
-    },
-    dependencies = {
-      -- Required.
-      "nvim-lua/plenary.nvim",
-
-      -- see below for full list of optional dependencies 👇
-    },
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
-      workspaces = {
-        {
-          name = "study",
-          path = "~/vaults/study",
-        },
-        {
-          name = "work",
-          path = "~/vaults/work",
-        },
-      },
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
 
-      -- see below for full list of options 👇
+  { "akinsho/toggleterm.nvim", version = "*", opts = {} },
+  -- {
+  -- 	"wfxr/minimap.vim",
+  -- 	build = "cargo install --locked code-minimap",
+  -- 	cmd = { "Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight" },
+  -- 	config = function()
+  -- 		vim.cmd("let g:minimap_width = 10")
+  -- 		vim.cmd("let g:minimap_auto_start = 1")
+  -- 		vim.cmd("let g:minimap_auto_start_win_enter = 1")
+  -- 	end,
+  -- },
+
+  {
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+    },
+    keys = {
+      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
 
   {
-    "michaelrommel/nvim-silicon",
-    lazy = true,
-    cmd = "Silicon",
+    "windwp/nvim-spectre",
+    event = "BufRead",
     config = function()
-      require("silicon").setup({
-        -- Configuration here, or leave empty to use defaults
-        font = "Hack=34;Hack=34",
-      })
+      require("spectre").setup()
     end,
   },
 
