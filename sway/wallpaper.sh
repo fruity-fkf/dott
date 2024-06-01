@@ -4,7 +4,7 @@
 
 #### Change "~/Downloads/wallpapers/" to the folder/directory you keep you wallpaper images.
 
-wall=~/wallpapers/desktop-wallpaper/gruvbox/gruvbox-13.png
+wall=~/wallpapers/desktop-wallpaper/nord/nord-43.png
 
 # Picks background wallpaper
 swaybg -i $wall

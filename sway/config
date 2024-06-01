@@ -18,7 +18,7 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu ~/.config/rofi/launchers/type-3/launcher.sh
+set $menu rofi -show drun 
  
 ### Output configuration
 #
@@ -34,8 +34,7 @@ bindsym $mod+Shift+n exec swaync-client -t -sw
 
 bindsym $mod+n exec ~/.config/rofi/applets/bin/quicklinks.sh
 
-exec wal -r
-
+exec waypaper --restore
 
 
 
@@ -93,13 +92,17 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 ### Input configuration
 #
 # Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
+
+input "12815:20571:Evision_AK820" {
+
+
+
+xkb_options ctrl:nocaps
+}
+
+
+
+
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -266,6 +269,5 @@ exec waybar -c ~/.config/sway/waybar/config -s ~/.config/sway/waybar/style.css
 
 
 
-exec ~/.config/sway/wallpaper.sh
 
 include @sysconfdir@/sway/config.d/*
