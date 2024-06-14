@@ -266,8 +266,10 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 
 exec waybar -c ~/.config/sway/waybar/config -s ~/.config/sway/waybar/style.css  
-
-
+exec wl-paste -t text --watch clipman store --no-persist
+exec /usr/libexec/xdg-desktop-portal-gtk
+exec /usr/libexec/xdg-desktop-portal-wlr
+exec /usr/libexec/xdg-desktop-portal-gnome
 
 
 include @sysconfdir@/sway/config.d/*
